@@ -7,18 +7,15 @@
 */
 int main(void)
 {
-	/* print single number 1 to 9 */
-	putchar('0');
-	putchar('1');
-	putchar('2');
-	putchar('3');
-	putchar('4');
-	putchar('5');
-	putchar('6');
-	putchar('7');
-	putchar('8');
-	putchar('9');
+	int num;
 
+	/* loop through to print single number 0 to 9 */
+	for (num = 0; num < 10; num++)
+		/* prints last digit of num being divided by 10 as character */
+		/* adds last digit to ASCII code character 0 */
+	{
+		putchar((num % 10) + '0');
+	}
 	putchar('\n');
 	return (0);
 }

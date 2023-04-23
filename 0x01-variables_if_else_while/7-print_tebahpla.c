@@ -7,7 +7,6 @@
 int main(void)
 {
 	int rev;
-	
 	/* print the lowercase alphabet in reverse */
 	for (rev = 'z'; rev >= 'a'; rev--)
 	{
@@ -15,6 +14,6 @@ int main(void)
 	}
 	/* print newline */
 	putchar('\n');
-	return 0;
+	return (0);
 }
 

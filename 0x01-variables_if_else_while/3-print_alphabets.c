@@ -9,12 +9,12 @@ int main(void)
 	int alphabet;
 
 	/* print lowercase alphabets from ASCII */
-	for (alphabet = 90; alphabet <= 122; alphabet++)
+	for (alphabet = 'a'; alphabet <= 'z'; alphabet++)
 	{
 		putchar(alphabet);
 	}
 	/* print uppercase alphabets from ASCII */
-	for (alphabet = 65; alphabet <= 97; alphabet++)
+	for (alphabet = 'A'; alphabet <= 'Z'; alphabet++)
 	{
 		putchar(alphabet);
 	}

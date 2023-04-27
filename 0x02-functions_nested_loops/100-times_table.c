@@ -4,14 +4,12 @@
 /**
  * print_times_table - function print
  * main - Entry point
- * @n: unknown number
- * if - condition to return no figure
- * for - loops through the numbers for wanted results
+ * @n: number
  * Return: Always 0
 */
 void print_times_table(int n)
 {
-	int a, b;
+	int i, j;
 
 	if (n < 0 || n > 15)
 	{
@@ -19,34 +17,13 @@ void print_times_table(int n)
 		return;
 	}
 
-	for (a = 1; a <= n; ++a)
+	for (i = 0; i <= n; ++i)
 	{
-		for (b = 1; b <= n; ++b)
+		for (j = 0; j <= n; ++j)
 		{
-			int product = a * b;
-			int digit = product / 100;
-
-			if (digit > 0)
-			{
-				_putchar(digit + '0');
-			}
-			else
-			{
-				_putchar(32);
-			}
-			digit = (product / 10) % 10;
-			if (digit > 0 || a == 1)
-			{
-				_putchar(digit + '0');
-			}
-			else
-			{
-				_putchar(32);
-			}
-			_putchar((product % 10) + '0');
-			_putchar(32);
+			printf("%4d", i * j);
 		}
-		_putchar('\n');
+		printf("\n");
 	}
 }
 

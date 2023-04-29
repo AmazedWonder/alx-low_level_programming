@@ -9,30 +9,27 @@
  */
 int main(void)
 {
-	int FB_test;
+	int fb;
 
-	/* loop throught 1 to 100 */
-	for (FB_test = 1; FB_test <= 100; FB_test++)
+	for (fb = 1; fb <= 100; fb++)
 	{
-		/* if multiples of 3 */
-		if (FB_test % 3 == 0)
+		if (fb % 3 == 0 && fb % 5 != 0)
 		{
-			printf("Fizz ");
-		}
-		/* multiples of 5 */
-		else if (FB_test % 5 == 0)
+			printf(" Fizz");
+		} else if (fb % 5 == 0 && fb % 3 != 0)
 		{
-			printf("Buzz ");
-		}
-		/* multiples of 3 and 5 */
-		else if (FB_test % 3 == 0 && FB_test % 5 == 0)
+			printf(" Buzz");
+		} else if (fb % 3 == 0 && fb % 5 == 0)
 		{
-			printf("FizzBuzz ");
-		}else
+			printf(" FizzBuzz");
+		} else if (fb == 1)
 		{
-			printf("%d ", FB_test);
+			printf("%d", fb);
+		} else
+		{
+			printf(" %d", fb);
 		}
 	}
-	putchar('\n');
+	printf("\n");
 	return (0);
 }

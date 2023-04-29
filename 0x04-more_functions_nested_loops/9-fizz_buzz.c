@@ -17,18 +17,12 @@ int main(void)
 		/* if multiples of 3 */
 		if (FB_test % 3 == 0)
 		{
-			putchar('F');
-			putchar('i');
-			putchar('z');
-			putchar('z');
+			printf("Fizz");
 		}
 		/* multiples of 5 */
 		else if (FB_test % 5 == 0)
 		{
-			putchar('B');
-			putchar('u');
-			putchar('z');
-			putchar('z');
+			printf("Buzz");
 		}
 		/* multiples of 3 and 5 */
 		else if (FB_test % 3 == 0 && FB_test % 5 == 0)

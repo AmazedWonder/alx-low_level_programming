@@ -17,29 +17,22 @@ int main(void)
 		/* if multiples of 3 */
 		if (FB_test % 3 == 0)
 		{
-			printf("Fizz");
+			printf("Fizz ");
 		}
 		/* multiples of 5 */
 		else if (FB_test % 5 == 0)
 		{
-			printf("Buzz");
+			printf("Buzz ");
 		}
 		/* multiples of 3 and 5 */
 		else if (FB_test % 3 == 0 && FB_test % 5 == 0)
 		{
-			printf("FizzBuzz");
-		}
-		else
+			printf("FizzBuzz ");
+		}else
 		{
-			printf("%d", FB_test);
+			printf("%d ", FB_test);
 		}
-
-		if (FB_test < 100)
-		{
-			putchar(32);
-		}
-		else
-			putchar('\n');
 	}
+	putchar('\n');
 	return (0);
 }

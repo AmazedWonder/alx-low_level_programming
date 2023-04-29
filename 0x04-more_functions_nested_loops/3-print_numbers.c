@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "main.h"
 
 /**
  * print_numbers - prints num 0 to 9
@@ -12,8 +13,8 @@ void print_numbers(void)
 	for (c = 0; c < 10; c++)
 	{
 		/* Convert integer to ASCII character */
-		putchar(c + '0');
+		_putchar(c + '0');
 	}
-	putchar('\n');
+	_putchar('\n');
 }
 

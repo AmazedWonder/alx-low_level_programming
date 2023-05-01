@@ -3,32 +3,41 @@
 /**
  * main - Entry point
  * void - return no value
- * while - loop until 98 terms are out
+ * for - loop to calculate and print the remaining Fibonacci numbers
  * Return: Always 0
 */
 int main(void)
 {
-	int f1 = 1, f2 = 2, f3;
-	int start = 2;
+	unsigned long int i;
+	unsigned long int bef = 1;
+	unsigned long int aft = 2;
+	unsigned long int l = 1000000000;
+	unsigned long int bef1;
+	unsigned long int bef2;
+	unsigned long int aft1;
+	unsigned long int aft2;
 
-	printf("%d, %d, ", f1, f2);
+	printf("%lu", bef);
 
-	while (start < 98)
+	for (i = 1; i < 91; i++)
 	{
-		f3 = f2;
-		/* calculate next term */
-		f2 = f1 + f2;
-		/* the next set term */
-		f1 = f3;
-		start++;
-		printf("%d", f2);
+		printf(", %lu", aft);
+		aft += bef;
+		bef = aft - bef;
+	}
 
-		/* before last term */
-		if (start < 98)
-		{
-			/* comma and space */
-			printf(", ");
-		}
+	bef1 = (bef / l);
+	bef2 = (bef % l);
+	aft1 = (aft / l);
+	aft2 = (aft % l);
+	for (i = 92; i < 99; ++i)
+	{
+		printf(", %lu", aft1 + (aft2 / l));
+		printf("%lu", aft2 % l);
+		aft1 = aft1 + bef1;
+		bef1 = aft1 - bef1;
+		aft2 = aft2 + bef2;
+		bef2 = aft2 - bef2;
 	}
 	printf("\n");
 	return (0);

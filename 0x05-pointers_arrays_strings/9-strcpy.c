@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * char *_strcpy -  that copies the string pointed to by src
+ * _strcpy -  that copies the string pointed to by src
  * to the buffer by dest
  * @src: copies string from src
- * @dest: pastes in dest
+ * @dest: copies to buffer
  * Return: pointer to dest
  */
 char *_strcpy(char *dest, char *src)
@@ -12,16 +12,18 @@ char *_strcpy(char *dest, char *src)
 	int l = 0;
 	int x = 0;
 
-	/* loop through the length of the string in src */
-	do {
+	/* Loop through the string in src to find its length */
+	while (src[l] != '\0')
+	{
 		l++;
-	} while (*(src + l) != '\0');
+	}
 
 	/* Copy the string from src to dest */
-	do {
+	while (x < l)
+	{
 		dest[x] = src[x];
 		x++;
-	} while (x < l);
+	}
 
 	/* Add null terminator to dest */
 	dest[l] = '\0';

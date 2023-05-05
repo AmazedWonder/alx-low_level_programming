@@ -2,33 +2,33 @@
 
 /**
  * print_number - prints an integer to the stdout
- * store - Enough space to store the largest 32-bit integer in decimal
- * including sign and null terminator
  * @n: integer to be printed
  */
 void print_number(int n)
 {
-	char store[12];
-	int i = 0;
-	int neg = 0;
+	unsigned int m, d1, d2;
 
 	if (n < 0)
 	{
-		neg = 1;
-		n = -n;
+		_putchar(45);
+		m = n * -1;
+	}
+	else
+	{
+		m = n;
 	}
 
-	do {
-		store[i++] = '0' + (n % 10);
-		n /= 10;
-	} while (n > 0);
+	d1 = m;
+	d2 = 1;
 
-	if (neg)
+	while (d1 > 9)
 	{
-		store[i++] = '-';
+		d1 /= 10;
+		d2 *= 10;
 	}
-	while (--i >= 0)
+
+	for (; d2 >= 1; d2 /= 10)
 	{
-		_putchar(store[i]);
+		_putchar(((m / d2) % 10) + 48);
 	}
 }

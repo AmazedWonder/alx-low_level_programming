@@ -5,24 +5,20 @@
  * @dest: string destination
  * @src: string source
  * @n: n bytes from string source
- * for - loop copies characters from src to dest
- * reaches the end of src
- * if - checks if current character in src is the null terminator
- * If it is, the loop terminates
- * the remaining characters in dest are filled with null terminators
+ * while - loop copies characters from src to dest
+ * iterates until copies n characters or reaches the end of src
+ * sec loop fills the remaining characters in dest with null terminators
  * Return: pointer to dest
  */
 char *_strncpy(char *dest, char *src, int n)
 {
-	int c;
+	char *dest_begin = dest;
 
-	for (c = 0; c < n; c++)
-	{
-		if (src[c] != '\0')
-			dest[c] = src[c];
-		else
-			dest[c] = '\0';
-	}
+	while (n > 0 && (*dest++ = *src++))
+		n--;
 
-	return (dest);
+	while (n-- > 0)
+		*dest++ = '\0';
+
+	return (dest_begin);
 }

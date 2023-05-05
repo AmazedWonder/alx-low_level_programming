@@ -8,33 +8,27 @@
  */
 void print_number(int n)
 {
-	unsigned int num = n;
-	int digit, i, j;
 	char store[12];
+	int i = 0;
+	int neg = 0;
 
 	if (n < 0)
 	{
-		_putchar('-');
-		num = -num;
+		neg = 1;
+		n = -n;
 	}
 
-	if (num == 0)
-	{
-		_putchar('0');
-		return;
-	}
+	do {
+		store[i++] = '0' + (n % 10);
+		n /= 10;
+	} while (n > 0);
 
-	/* Gets digits from the integer and store them in the store in reverse */
-	for (i = 0; num > 0; i++)
+	if (neg)
 	{
-		digit = num % 10;
-		store[i] = digit + '0';
-		num /= 10;
+		store[i++] = '-';
 	}
-
-	/* Print the digits in reverse order */
-	for (j = i - 1; j >= 0; j--)
+	while (--i >= 0)
 	{
-		_putchar(store[j]);
+		_putchar(store[i]);
 	}
 }

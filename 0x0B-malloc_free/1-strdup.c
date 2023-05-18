@@ -15,12 +15,13 @@ char *_strdup(char *str)
 /* used to store the address of the dynamically */
 /* allocated duplicate array */
 char *p;
-int lengthCount, dupCount = 0;
+int lengthCount = 0, dupCount = 0;
 
 if (str == NULL)
 return (NULL);
 
-for (lengthCount = 0; str[lengthCount] != '\0'; lengthCount++)
+for (; str[lengthCount] != '\0'; lengthCount++)
+;
 
 /* dynamically allocates memory for the duplicate array */
 /* lengthCount + 1 accounts for null terminator in duplicate array */

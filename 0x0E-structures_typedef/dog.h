@@ -8,11 +8,10 @@
  * @name: Pointer to a character representing the name of the dog
  * @age: Floating-point value representing the age of the dog
  * @owner: Pointer to a character representing the name of the owner of the dog
+ *
  * Description: This structure defines a dog with its name, age, and owner
  *		It store information about dogs
- * new_dog - Creates new instance of struct dog and initializes its members
- * Return: Pointer to the newly created struct dog instance,
- * or NULL if memory allocation fails
+ * Return: Always 0
  */
 struct dog
 {
@@ -22,6 +21,19 @@ struct dog
 };
 
 typedef struct dog dogg;
+
+/**
+ * new_dog - Creates a new instance of struct dog and initializes its members
+ * @name: Pointer to a character representing the name of the dog
+ * @age: Floating-point value representing the age of the dog
+ * @owner: Pointer to a character representing the name of the owner of the dog
+ *
+ * Description: This function dynamically allocates memory for struct dog,
+ *		initializes its members with the provided values
+ * Return: Pointer to the newly created struct dog instance,
+ * or NULL if memory allocation fails
+ */
+
 struct dog *new_dog(char *name, float age, char *owner)
 {
 struct dog *dog1;

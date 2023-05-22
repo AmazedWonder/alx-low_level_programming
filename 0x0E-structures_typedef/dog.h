@@ -22,29 +22,9 @@ struct dog
 
 typedef struct dog dogg;
 
-/**
- * new_dog - Creates a new instance of struct dog and initializes its members
- * @name: Pointer to a character representing the name of the dog
- * @age: Floating-point value representing the age of the dog
- * @owner: Pointer to a character representing the name of the owner of the dog
- *
- * Description: This function dynamically allocates memory for struct dog,
- *		initializes its members with the provided values
- * Return: Pointer to the newly created struct dog instance,
- * or NULL if memory allocation fails
- */
+void init_dog(struct dog *d, char *name, float age, char *owner);
 
-struct dog *new_dog(char *name, float age, char *owner)
-{
-struct dog *dog1;
+void print_dog(struct dog *d);
 
-dog1 = malloc(sizeof(struct dog));
-if (dog1 == NULL)
-return (NULL);
-dog1->name = name;
-dog1->age = age;
-dog1->owner = owner;
-return (dog1);
 
-}
 #endif /* DOG_H ndef */

@@ -23,7 +23,9 @@ num1 = atoi(argv[1]);
 operator = argv[2];
 num2 = atoi(argv[3]);
 
-if ((*operator != '+' && *operator != '-' && *operator != '*' && *operator != '/' && *operator != '%') || operator[1] != '\0')
+if ((*operator != '+' && *operator != '-'
+&& *operator != '*' && *operator != '/'
+&& *operator != '%') || operator[1] != '\0')
 
 {
 printf("Error\n");

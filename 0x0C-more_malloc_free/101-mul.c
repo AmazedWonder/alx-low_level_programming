@@ -1,71 +1,140 @@
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-
-#define MAX_DIGITS 10000
+#include <stdio.h>
+#include <ctype.h>
 
 /**
- * multiply - Multiplies two numbers and stores the result in a dynamically allocated string
- * @num1: First number as a string
- * @num2: Second number as a string
- * @Result: Pointer to store the result
+
+ * _is_zero - determines if any number is zero
+
+ * @num1: first number.
+
+ * @num2: second number.
+
+ *
+
+ * Return: 1 if either number is zero, 0 otherwise.
+
  */
-void multiply(char *num1, char *num2, char **result) {
-    int len1 = strlen(num1);
-    int len2 = strlen(num2);
-    int result_size = len1 + len2;
-    int i, j, carry, digit;
+int _is_zero(char *num1, char *num2)
+{
+	int i, is_num1 = 1, is_num2 = 1;
 
-    *result = malloc((result_size + 1) * sizeof(char));
+	for (i = 0; num1[i] != '\0'; i++)
+		if (num1[i] != '0')
+		{
+			is_num1 = 0;
+			break;
+		}
 
-    /* Initialize the result array with '0' */
-    for (i = 0; i < result_size; i++) {
-        (*result)[i] = '0';
-    }
-    (*result)[result_size] = '\0';
-
-    /* Perform multiplication */
-    for (i = len1 - 1; i >= 0; i--) {
-        carry = 0;
-        for (j = len2 - 1; j >= 0; j--) {
-            digit = (num1[i] - '0') * (num2[j] - '0') + ((*result)[i + j + 1] - '0') + carry;
-            carry = digit / 10;
-            (*result)[i + j + 1] = (digit % 10) + '0';
-        }
-        (*result)[i] += carry;
-    }
+	for (i = 0; num2[i] != '\0'; i++)
+		if (num2[i] != '0')
+		{
+			is_num2 = 0;
+			break;
+		}
+	if (is_num1 == 1 || is_num2 == 1)
+	{
+	printf("0\n");
+	exit(0);
+	}
+return (0);
 }
 
 /**
- * main - Entry point
- * @argc: Number of command-line arguments
- * @argv: Array of command-line argument strings
- * Return: 0 on success, 1 on error
+
+ * multiply_numbers - multiplies two positive numbers.
+
+ * @num1: first number.
+
+ * @num2: second number.
+
+ *
+
+ * Return: Pointer to the product (char array).
+
  */
+char *multiply_numbers(char *num1, char *num2)
+{
+	int len1 = 0, len2 = 0, product_len = 0;
+	int i, j, k, carry = 0;
+	char *result;
+	char *product;
+	int num1_digit;
+	int num2_digit;
+	int temp;
+
+	while (num1[len1] != '\0')
+	{
+		len1++;
+	}
+
+	while (num2[len2] != '\0')
+	{
+		len2++;
+	}
+
+	if (_is_zero(num1, num2))
+	{
+		result = malloc(2 * sizeof(char));
+		result[0] = '0';
+		result[1] = '\0';
+		return result;
+	}
+
+	product_len = len1 + len2;
+	product = malloc((product_len + 1) * sizeof(char));
+	if (product == NULL)
+	{
+		printf("Error\n");
+		exit(98);
+	}
+
+	for (i = 0; i < product_len; i++)
+	{
+		product[i] = '0';
+	}
+	product[product_len] = '\0';
+
+	k = product_len - 1;
+	for (i = len1 - 1; i >= 0; i--)
+	{
+		carry = 0;
+		j = len2 - 1;
+		while (j >= 0 || carry != 0)
+		{
+			num1_digit = num1[i] - '0';
+			num2_digit = (j >= 0) ? num2[j] - '0' : 0;
+			temp = (product[k] - '0') + (num1_digit * num2_digit) + carry;
+			product[k] = (temp % 10) + '0';
+			carry = temp / 10;
+			j--;
+			k--;
+		}
+	}
+
+	return product;
+}
+
 int main(int argc, char *argv[])
 {
-char *num1, *num2, *result;
-int i;
-    if (argc != 3) {
-        printf("Usage: %s <num1> <num2>\n", argv[0]);
-        return (1);
-    }
+	char *num1;
+	char *num2;
+	char *result;
 
-    num1 = argv[1];
-    num2 = argv[2];
-    result = NULL;
+	if (argc != 3)
+	{
+		printf("Error\n");
+		exit(98);
+	}
 
-    multiply(num1, num2, &result);
+	num1 = argv[1];
+	num2 = argv[2];
 
-    /* Remove leading zeros */
-    i = 0;
-    while (result[i] == '0') {
-        i++;
-    }
+	result = multiply_numbers(num1, num2);
 
-    printf("%s\n", result + i);
+	printf("%s\n", result);
 
-    free(result);
+	free(result);
 
-    return (0);
+	return (0);
 }

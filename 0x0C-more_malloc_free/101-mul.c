@@ -3,55 +3,30 @@
 #include <ctype.h>
 
 /**
-
  * _is_zero - determines if any number is zero
-
- * @num1: first number.
-
- * @num2: second number.
-
+ * @num: number to check
  *
-
- * Return: 1 if either number is zero, 0 otherwise.
-
+ * Return: 1 if the number is zero, 0 otherwise
  */
-int _is_zero(char *num1, char *num2)
+int _is_zero(char *num)
 {
-	int i, is_num1 = 1, is_num2 = 1;
+	int i;
 
-	for (i = 0; num1[i] != '\0'; i++)
-		if (num1[i] != '0')
-		{
-			is_num1 = 0;
-			break;
-		}
-
-	for (i = 0; num2[i] != '\0'; i++)
-		if (num2[i] != '0')
-		{
-			is_num2 = 0;
-			break;
-		}
-	if (is_num1 == 1 || is_num2 == 1)
+	for (i = 0; num[i] != '\0'; i++)
 	{
-	printf("0\n");
-	exit(0);
+		if (num[i] != '0')
+			return (0);
 	}
-return (0);
+
+	return (1);
 }
 
 /**
-
- * multiply_numbers - multiplies two positive numbers.
-
- * @num1: first number.
-
- * @num2: second number.
-
+ * multiply_numbers - multiplies two positive numbers
+ * @num1: first number
+ * @num2: second number
  *
-
- * Return: Pointer to the product (char array).
-
+ * Return: Pointer to the product (char array)
  */
 char *multiply_numbers(char *num1, char *num2)
 {
@@ -64,21 +39,17 @@ char *multiply_numbers(char *num1, char *num2)
 	int temp;
 
 	while (num1[len1] != '\0')
-	{
 		len1++;
-	}
 
 	while (num2[len2] != '\0')
-	{
 		len2++;
-	}
 
-	if (_is_zero(num1, num2))
+	if (_is_zero(num1) || _is_zero(num2))
 	{
 		result = malloc(2 * sizeof(char));
 		result[0] = '0';
 		result[1] = '\0';
-		return result;
+		return (result);
 	}
 
 	product_len = len1 + len2;
@@ -90,9 +61,8 @@ char *multiply_numbers(char *num1, char *num2)
 	}
 
 	for (i = 0; i < product_len; i++)
-	{
 		product[i] = '0';
-	}
+
 	product[product_len] = '\0';
 
 	k = product_len - 1;
@@ -112,9 +82,16 @@ char *multiply_numbers(char *num1, char *num2)
 		}
 	}
 
-	return product;
+	return (product);
 }
 
+/**
+ * main - Entry point
+ * @argc: argument count
+ * @argv: argument parameter/vector
+ *
+ * Return: 0
+ */
 int main(int argc, char *argv[])
 {
 	char *num1;

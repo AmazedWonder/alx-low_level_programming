@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 
+/* https://github.com/holbertonschool/0x04.c/
+raw/master/101-crackme */
 /**
  * main - generates keygen.
  * while - loop through num

@@ -38,10 +38,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	free(buf);
 
 	close(fd);
-	if (written_bytes != read_bytes)
-	{
-		return (0);
-	}
+	/*if (written_bytes != read_bytes)*/
+	/*{*/
+	/*	return (0);*/
+	/*}*/
 
 	return (written_bytes);
 

@@ -346,8 +346,8 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		exit(98);
 	}
 
-/*	_elf_close(header->e_ident);*/
-	_elf_close(opn);
+	_elf_check(header->e_ident);
+/*	_elf_close(opn);*/
 
 	printf("ELF Header:\n");
 

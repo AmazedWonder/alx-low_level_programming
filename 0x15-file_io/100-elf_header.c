@@ -23,11 +23,8 @@ void _elf_check(unsigned char *e_ident)
 		if (e_ident[ind] != 127 &&
 
 				e_ident[ind] != 'E' &&
-
 				e_ident[ind] != 'L' &&
-
 				e_ident[ind] != 'F')
-
 		{
 			dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
 			exit(98);
@@ -298,7 +295,6 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 
 	_elf_check(header->e_ident);
 	/*	_elf_close(opn);*/
-
 	printf("ELF Header:\n");
 	_elf_magic(header->e_ident);
 	_elf_class(header->e_ident);

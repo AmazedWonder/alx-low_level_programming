@@ -12,7 +12,7 @@ void free_dlistint(dlistint_t *head)
 
 	/*If the head pointer is not NULL*/
 	/*enters a loop that continues until the next*/
-	/*pointer of the current node (head->next) becomes NULL*/	
+	/*pointer of the current node (head->next) becomes NULL*/
 	while (head->next)
 	{
 		head = head->next; /* Move head to the next node */

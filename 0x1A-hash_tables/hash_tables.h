@@ -44,50 +44,40 @@ void hash_table_print(const hash_table_t *ht);
 void hash_table_delete(hash_table_t *ht);
 
 /**
- * struct shash_node_s - Represents a node of a
- * sorted hash table to store key-value pairs
+ * struct shash_node_s - Node of a sorted hash table
  *
- * @key: The key associated with node, a string/char array
- * that is the unique identifier inside the hash table
- * The key is a string of char array
- * @value: The value of the key, also a str and holds
- * the data corresponding to key
- * @next: A pointer to the next node in  linked list, used
- * to link nodes together in a collision resolution mechanism
+ * @key: The key, string
+ * The key is unique in the HashTable
+ * @value: The value corresponding to a key
+ * @next: A pointer to the next node of the List
  * @sprev: A pointer to the previous element of the sorted linked list
- * used to maintain the order of the nodes in the hash table
  * @snext: A pointer to the next element of the sorted linked list
- * used to maintain the order of the nodes in the hash table
  */
 typedef struct shash_node_s
 {
-	char *key;
-	char *value;
-	struct shash_node_s *next;
-	struct shash_node_s *sprev;
-	struct shash_node_s *snext;
+     char *key;
+     char *value;
+     struct shash_node_s *next;
+     struct shash_node_s *sprev;
+     struct shash_node_s *snext;
 } shash_node_t;
 
 /**
- * struct shash_table_s - sorted hash table data structure
+ * struct shash_table_s - Sorted hash table data structure
  *
- * @size: The size of the hash table, indicates number of
- * slots or buckets in the hash table array
- * @array: An array of pointers to the first nodes of linked lists
- * and a pointer to a pointer of type shash_node_t  
- * Each slot in the array corresponds to a bucket in the hash table
+ * @size: The size of the array
+ * @array: An array of size @size
+ * Each cell of this array is a pointer to the first node of a linked list,
  * because we want our HashTable to use a Chaining collision handling
  * @shead: A pointer to the first element of the sorted linked list
- * points to the head of linked list that maintains order of nodes
  * @stail: A pointer to the last element of the sorted linked list
- * points to the tail of linked list that maintains order of nodes
  */
 typedef struct shash_table_s
 {
-	unsigned long int size;
-	shash_node_t **array;
-	shash_node_t *shead;
-	shash_node_t *stail;
+     unsigned long int size;
+     shash_node_t **array;
+     shash_node_t *shead;
+     shash_node_t *stail;
 } shash_table_t;
 
 shash_table_t *shash_table_create(unsigned long int size);

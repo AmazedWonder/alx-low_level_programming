@@ -1,0 +1,10 @@
+# Default rule: all, the all rule builds executable
+# Rule to build the executable, name of the executable: school
+#all: main.c school.c
+#	gcc main.c school.c -o school
+# Default rule: all, the all rule builds the executable
+all: school
+
+# Rule to build the executable
+school: main.c school.c
+	gcc main.c school.c -o school

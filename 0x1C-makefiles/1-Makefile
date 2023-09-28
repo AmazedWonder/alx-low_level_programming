@@ -15,3 +15,7 @@ all: $(EXECUTABLE)
 # Rule to build the executable
 $(EXECUTABLE): $(SRC)
 	$(CC) $(SRC) -o $(EXECUTABLE)
+
+# Clean rule to remove the executable
+clean:
+	rm -f $(EXECUTABLE)

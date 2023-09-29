@@ -15,16 +15,17 @@ OBJ = $(SRC:.c=.o)
 # Executable name
 NAME = school
 
-# Default rule
-all: $(NAME)
+# Default rule, Makefile should not compile if the header file m.h is missing
+# "all" builds your executable
+all: m.h $(OBJ)
 
 # Rule to build the executable
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 # Rule to compile source files into object files
-$(OBJ): %.o : %.c m.h
-	$(CC) $(CFLAGS) -c $< -o $@
+#$(OBJ): %.o : %.c m.h
+#	$(CC) $(CFLAGS) -c $< -o $@
 
 # Rule to delete Emacs and Vim temporary files along with the executable
 clean:
@@ -47,4 +48,4 @@ re: fclean all
 .DEFAULT_GOAL := all
 
 # Program to delete files
-RM := $(shell which rm) -f
+#RM := $(shell which rm) -f

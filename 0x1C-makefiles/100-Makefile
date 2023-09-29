@@ -15,6 +15,9 @@ OBJ = $(SRC:.c=.o)
 # Executable name
 NAME = school
 
+# Make sure the clean, oclean, fclean, re rules never fail
+.PHONY: clean oclean fclean re
+
 # Default rule, Makefile should not compile if the header file m.h is missing
 # "all" builds your executable
 all: m.h $(OBJ)
@@ -40,9 +43,6 @@ fclean: clean oclean
 
 # Rule to force recompilation of all source files
 re: fclean all
-
-# Make sure the clean, oclean, fclean, re rules never fail
-.PHONY: clean oclean fclean re
 
 # Set default goal to 'all'
 .DEFAULT_GOAL := all

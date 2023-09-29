@@ -45,7 +45,7 @@ fclean: clean oclean
 re: fclean all
 
 # Set default goal to 'all'
-.DEFAULT_GOAL := all
+#.DEFAULT_GOAL := all
 
 # Program to delete files
 #RM := $(shell which rm) -f
